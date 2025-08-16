@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StudyMate AI</title>
+</head>
+<body>
+  <h1>Welcome to StudyMate AI 📚</h1>
+  <p>Your AI-powered study companion!</p>
+  <form id="questionForm">
+    <input type="text" id="question" placeholder="Ask me anything..." required />
+    <button type="submit">Ask</button>
+  </form>
+  <div id="answer"></div>
+
+  <script>
+    document.getElementById("questionForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const question = document.getElementById("question").value;
+
+      const response = await fetch("/ask", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ question }),
+      });
+
+      const data = await response.json();
+      document.getElementById("answer").innerText = data.answer;
+    });
+  </script>
+</body>
+</html>
