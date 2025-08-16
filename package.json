@@ -1,0 +1,12 @@
+{
+  "name": "studymate-ai-starter",
+  "version": "1.0.0",
+  "description": "StudyMate AI Starter App",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
